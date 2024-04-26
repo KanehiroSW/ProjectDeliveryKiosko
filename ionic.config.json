@@ -1,0 +1,7 @@
+{
+  "name": "AppKiosco",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
