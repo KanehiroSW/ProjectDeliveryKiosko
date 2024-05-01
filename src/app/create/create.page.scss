@@ -1,126 +1,111 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-
-/* Paleta de Colores */
-:root {
-  --color-primary: #4CAF50;
-  --color-secondary: #FFC107;
-  --color-background: #F5F5F5;
-  --color-text-primary: #333333;
-  --color-text-secondary: #666666;
-}
-
-.header-container {
-  position: relative;
-  height: 70px; 
-  overflow: hidden;
-}
-
-.header-content {
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+.header {
   position: absolute;
-  top: 35;
-  left: 0;
-  right: 0;
-  height: 50px; 
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 10px;
-  z-index: 1;
-}
-
-.back-button {
-  --background: transparent;
-  --color: white;
-  --box-shadow: none;
-  font-size: 20px; 
-}
-
-.add-button {
-  --background: var(--color-primary);
-  --color: white;
-  font-size: 14px;
-  font-weight: bold;
-  border-radius: 20px;
-  transition: background-color 0.3s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 6px 12px; 
-}
-
-.add-button:hover {
-  --background: #388E3C;
-}
-
-.header-image {
+  background: rgba(167, 114, 15, 0.974);
+  height: 200px;
+  margin: 0px;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
 }
 
-.content-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 20px;
-  font-family: 'Roboto', sans-serif;
-  background-image: url('/assets/dashy3.jpg');
-  background-size: cover;
-  background-position: center;
-  min-height: 100vh;
-}
-.product-image {
-  width: 110%;
-  max-width: 500px;
-  border-radius: 50px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  margin-bottom: 10px;
-}
-
-.change-photo-button {
-  border-radius: 20px;
-  margin-bottom: 30px;
-  background-color: var(--color-secondary);
+.btnRet{
+  --ripple-color: transparent;
+  margin-top: 20px;
+  width: 45px;
+  height: 45px;
+  --box-shadow: none;
+  border-radius: 50%;
+  --border-radius: 50%;
   color: white;
+  background-color: transparent;
+  margin-left: 0px;
+}
+
+.icRet{
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  margin-right: 5px;
+}
+
+
+ion-title{
+  font-family: "Outfit", sans-serif;
+  color: #F2F2F2;
+  font-size: 37px;
+}
+
+.imgPro{
+  position: absolute;
+  width: 115px;
+  height: 120px;
+  top: 30px;
+  right: 0;
+}
+
+ion-list{
+  background: white;
+  margin-top: 95px;
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+  box-shadow: 0px -2px 2px rgba(0, 0, 0, 0.159);
+  height: auto;
+}
+
+.subImg{
+  margin: 0px 50px 0px 50px;
+}
+
+.contImg{
+  background:rgba(155, 150, 150, 0.342);
+  padding: 10px;
+  text-align: center;
+  border-radius: 50px;
+  width: 100%;
+  height: 225px;
+  margin-bottom: 20px;
+}
+
+.image-container{
+  width: 250px;
+  height: 200px;
+}
+
+.button-container {
+  margin-bottom: 5px;
+}
+
+.btncam{
+  --box-shadow: none;
+  color: white;
+  font-family: "Outfit", sans-serif;
+  background: rgb(107, 73, 9);
+  padding: 6px 7px;
+  font-size: 15px;
+  border-radius: 50px;
+  margin: auto;
+}
+
+.btnup{
+  --box-shadow: none;
+  --background: rgb(113, 199, 43);
+  --border-radius: 50px;
+  height: 40px;
+  font-family: "Outfit", sans-serif;
   font-size: 16px;
-  font-weight: bold;
-  padding: 12px 24px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  margin-left: 70%;
 }
 
-.change-photo-button:hover {
-  background-color: #FFA000; 
-  transform: translateY(-2px);
-  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+.btnRet {
+  margin-bottom: 16px;
 }
 
-.product-info {
-  width: 80%;
-  background-color: rgba(245, 245, 245, 0.8); 
-  border-radius: 20px;
-  padding: 20px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+ion-item {
+  margin-bottom: 12px;
 }
 
-.product-description {
-  background-color: rgba(255, 255, 255, 0.8); 
-  border-radius: 20px;
-  padding: 15px 25px;
-  margin-bottom: 15px;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-  line-height: 1.5;
-}
-
-.description-title {
-  font-weight: bold;
+ion-input {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.253);
+  font-family: "Outfit", sans-serif;
   font-size: 16px;
-  color: #333;
-}
-
-.description-value {
-  font-style: italic;
-  font-size: 14px;
-  color: #666;
+  color: #272727;
 }

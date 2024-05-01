@@ -1,36 +1,37 @@
-<div class="header-container">
-  <div class="header-content">
-    <ion-button class="back-button" fill="clear" routerLink="/">
-      <ion-icon name="arrow-back"></ion-icon>
-    </ion-button>
-    <ion-button class="add-button">
-      Agregar
-    </ion-button>
+<ion-content [fullscreen]="true">
+  <div class="header">
+    <ion-buttons slot="start" class="ion-no-padding">
+      <ion-button class="btnRet" color="black" routerLink="/tabs/tab2">
+        <ion-icon class="icRet" name="caret-back"></ion-icon>
+      </ion-button>
+      <ion-title class="ion-no-padding">PRODUCTO</ion-title>
+    </ion-buttons>
   </div>
-  <img src="assets/final.jpg" alt="Imagen de Encabezado" class="header-image">
-</div>
+  <img class="imgPro" src="assets/ImgUpd-Cre/UClog.png" alt="Product">
 
-<ion-content>
-  <div class="content-container">
-    <div class="image-container">
-      <img src="assets/soda.jpg" alt="Imagen del producto" class="product-image">
+  <ion-list lines="none">
+    <div class="container ion-padding">
+      <div class="contImg">
+        <div *ngIf="fotoTomada" clas="subImg">
+        <img class="image-container" [src]="fotoTomada" alt="Foto tomada">
+        </div>
+      </div>
+      <ion-buttons class="button-container">
+        <ion-button class="btncam" (click)="seleccionarDesdeGaleria()">SUBIR FOTO</ion-button>
+        <ion-button class="btncam" (click)="tomarFoto()">TOMAR FOTO</ion-button>
+      </ion-buttons>
+      <form>
+        <ion-item lines="none">
+          <ion-input label="Nombre de Producto" labelPlacement="floating" placeholder="Nombre"></ion-input>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-input label="Descripción" labelPlacement="floating" placeholder="Descripción"></ion-input>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-input label="Precio" labelPlacement="floating" type="number" placeholder="Precio"></ion-input>
+        </ion-item>
+      </form>
+      <ion-button class="btnup" routerLink="/tabs/tab2">Subir</ion-button>
     </div>
-    <ion-button class="change-photo-button" expand="full">
-      Cambiar Foto
-    </ion-button>
-    <div class="product-info">
-      <div class="product-description">
-        <div class="description-title">Nombre del Producto</div>
-        <div class="description-value">Galleta Soda</div>
-      </div>
-      <div class="product-description">
-        <div class="description-title">Precio</div>
-        <div class="description-value">$1.50</div>
-      </div>
-      <div class="product-description">
-        <div class="description-title">Disponibilidad</div>
-        <div class="description-value">En Stock</div>
-      </div>
-    </div>
-  </div>
+  </ion-list>
 </ion-content>

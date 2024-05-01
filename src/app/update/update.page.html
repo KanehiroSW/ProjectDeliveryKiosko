@@ -1,33 +1,37 @@
-<ion-app>
-  <ion-content class="ion-padding">
-    <div class="container">
-      <div class="header">
-        <ion-button fill="clear" color="primary">
-          <ion-icon name="arrow-back"></ion-icon>
-        </ion-button>
-        <ion-button color="success">ACTUALIZAR</ion-button>
+<ion-content [fullscreen]="true">
+  <div class="header">
+    <ion-buttons slot="start" class="ion-no-padding">
+      <ion-button class="btnRet" color="black" routerLink="/tabs/tab2">
+        <ion-icon class="icRet" name="caret-back"></ion-icon>
+      </ion-button>
+      <ion-title class="ion-no-padding">PRODUCTO</ion-title>
+    </ion-buttons>
+  </div>
+  <img class="imgPro" src="assets/ImgUpd-Cre/UClog.png" alt="Product">
+
+  <ion-list lines="none">
+    <div class="container ion-padding">
+      <div class="contImg">
+        <div *ngIf="fotoTomada" clas="subImg">
+        <img class="image-container" [src]="fotoTomada" alt="Foto tomada">
+        </div>
       </div>
-      <div class="image-container">
-        <img src="https://placehold.co/150x100" alt="Product Image">
-      </div>
-      <div class="button-container">
-        <ion-button color="primary" expand="block">CAMBIAR FOTO</ion-button>
-      </div>
+      <ion-buttons class="button-container">
+        <ion-button class="btncam" (click)="seleccionarDesdeGaleria()">SUBIR FOTO</ion-button>
+        <ion-button class="btncam" (click)="tomarFoto()">TOMAR FOTO</ion-button>
+      </ion-buttons>
       <form>
         <ion-item lines="none">
-          <ion-label position="floating">Nombre de Producto</ion-label>
-          <ion-input></ion-input>
+          <ion-input label="Nombre de Producto" labelPlacement="floating" placeholder="Nombre" [value]="name"></ion-input>
         </ion-item>
         <ion-item lines="none">
-          <ion-label position="floating">Descripción</ion-label>
-          <ion-input></ion-input>
+          <ion-input label="Descripción" labelPlacement="floating" placeholder="Descripción" [value]="desc"></ion-input>
         </ion-item>
         <ion-item lines="none">
-          <ion-label position="floating">Precio</ion-label>
-          <ion-input></ion-input>
+          <ion-input label="Precio" labelPlacement="floating" type="number" placeholder="Precio" [value]="price"></ion-input>
         </ion-item>
       </form>
+      <ion-button class="btnup" routerLink="/tabs/tab2">ACTUALIZAR</ion-button>
     </div>
-  </ion-content>
-</ion-app>
-
+  </ion-list>
+</ion-content>
