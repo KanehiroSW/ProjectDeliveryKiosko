@@ -1,15 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-create',
   templateUrl: './create.page.html',
   styleUrls: ['./create.page.scss'],
 })
-export class CreatePage implements OnInit {
+export class CreatePage {
+  nombreProducto: string = '';
+  descripcionProducto: string = '';
+  precioProducto: number=0;
 
-  constructor() { }
+  constructor(private navCtrl: NavController) {}
 
-  ngOnInit() {
+  goBack() {
+    this.navCtrl.back();
   }
 
+  addProduct() {
+    // Implementa aquí la lógica para agregar el producto
+  }
 }

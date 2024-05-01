@@ -1,17 +1,28 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 3
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content>
+  <div class="header">
+    <p class="ptit">REPORTES</p>
+    <p class="psub">DE VENTAS</p>
+  </div>
+  <img class="imgReport" src="assets/Img-Reports/RLog.png" alt="Report">
+  <ion-list lines="none">
+    <ion-item lines="none">
+      <div class="row">
+        <div class="container">
+          <div class="content">
+            <img src="assets/Img-Reports/reportes.png" alt="Imagen 1" class="image">
+            <div class="date">21/04/2024</div>
+            <button class="btn">Visualizar PDF</button>
+          </div>
+        </div>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+        <div class="container">
+          <div class="content">
+            <img src="assets/Img-Reports/reportes.png" alt="Imagen 2" class="image">
+            <div class="date">22/04/2024</div>
+            <button class="btn">Visualizar PDF</button>
+          </div>
+        </div>
+      </div>
+    </ion-item>
+  </ion-list>
 </ion-content>

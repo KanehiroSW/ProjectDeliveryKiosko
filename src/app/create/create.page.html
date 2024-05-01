@@ -1,13 +1,36 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>create</ion-title>
-  </ion-toolbar>
-</ion-header>
+<div class="header-container">
+  <div class="header-content">
+    <ion-button class="back-button" fill="clear" routerLink="/">
+      <ion-icon name="arrow-back"></ion-icon>
+    </ion-button>
+    <ion-button class="add-button">
+      Agregar
+    </ion-button>
+  </div>
+  <img src="assets/final.jpg" alt="Imagen de Encabezado" class="header-image">
+</div>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">create</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <div class="content-container">
+    <div class="image-container">
+      <img src="assets/soda.jpg" alt="Imagen del producto" class="product-image">
+    </div>
+    <ion-button class="change-photo-button" expand="full">
+      Cambiar Foto
+    </ion-button>
+    <div class="product-info">
+      <div class="product-description">
+        <div class="description-title">Nombre del Producto</div>
+        <div class="description-value">Galleta Soda</div>
+      </div>
+      <div class="product-description">
+        <div class="description-title">Precio</div>
+        <div class="description-value">$1.50</div>
+      </div>
+      <div class="product-description">
+        <div class="description-title">Disponibilidad</div>
+        <div class="description-value">En Stock</div>
+      </div>
+    </div>
+  </div>
 </ion-content>
