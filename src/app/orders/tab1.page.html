@@ -1,17 +1,77 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="header">
+    <p class="ptit">PEDIDOS</p>
+    <p class="psub">PENDIENTES</p>
+  </div>
+  <img class="imgOrder" src="assets/Img-Orders/OLog.png" alt="Orders">
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <ion-list class="main">
+    <ion-item class="General" lines="none">
+      <ion-item class="Ocontainer ion-no-border" lines="none">
+        <div>
+          <img src="assets/pedidos.png" alt="Order" class="OIlog">
+          <div>
+            <p class="pped">!SOLICITUD DE PEDIDO¡</p>
+            <p class="pname">Carl Gil</p>
+            <ion-button id="modal" class="btnview" color="#72C28F">
+              <ion-icon class="iiview" name="eye"></ion-icon>
+            </ion-button>
+            <p class="pmonto">Total:</p>
+            <p class="pprice">S/10.00</p>
+          </div>
+          <div class="btns">
+            <ion-button color="danger" class="btnOrder"><ion-icon name="close-outline"></ion-icon></ion-button>
+            <ion-button color="success" class="btnOrder"><ion-icon name="checkmark-outline"></ion-icon></ion-button>
+          </div>
+        </div>
+      </ion-item>
+      <ion-modal #modal trigger="modal">
+        <ng-template>
+          <ion-content>
+            <ion-toolbar>
+              <ion-title>PRODUCTOS ORDENADOS</ion-title>
+            </ion-toolbar>
+            <ion-list>
+              <ion-item>
+                <ion-avatar slot="start">
+                  <ion-img src="assets/Img-Orders/soda.jpg"></ion-img>
+                </ion-avatar>
+                <ion-label>
+                  <h2>Galleta Casino de Menta</h2>
+                  <h3>Precio:</h3>
+                  <h3>S/0.8</h3>
+                </ion-label>
+              </ion-item>
+              <ion-item>
+                <ion-avatar slot="start">
+                  <ion-img src="assets/Img-Orders/soda.jpg"></ion-img>
+                </ion-avatar>
+                <ion-label>
+                  <h2>Hamburguesa de carne</h2>
+                  <h3>Precio:</h3>
+                  <h3>S/3.5</h3>
+                </ion-label>
+              </ion-item>
+              <ion-item>
+                <ion-avatar slot="start">
+                  <ion-img src="assets/Img-Orders/soda.jpg"></ion-img>
+                </ion-avatar>
+                <ion-label>
+                  <h2>Coca Cola 500ml.</h2>
+                  <h3>Precio:</h3>
+                  <h3>S/2.5</h3>
+                </ion-label>
+              </ion-item>
+              <ion-item>
+                <ion-label>
+                  <h3>Total:</h3>
+                  <h3>S/8.5</h3>
+                </ion-label>
+              </ion-item>
+            </ion-list>
+          </ion-content>
+        </ng-template>
+      </ion-modal>
+    </ion-item>
+  </ion-list>
 </ion-content>
