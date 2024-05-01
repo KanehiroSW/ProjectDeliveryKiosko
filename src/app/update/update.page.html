@@ -1,13 +1,33 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>update</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-app>
+  <ion-content class="ion-padding">
+    <div class="container">
+      <div class="header">
+        <ion-button fill="clear" color="primary">
+          <ion-icon name="arrow-back"></ion-icon>
+        </ion-button>
+        <ion-button color="success">ACTUALIZAR</ion-button>
+      </div>
+      <div class="image-container">
+        <img src="https://placehold.co/150x100" alt="Product Image">
+      </div>
+      <div class="button-container">
+        <ion-button color="primary" expand="block">CAMBIAR FOTO</ion-button>
+      </div>
+      <form>
+        <ion-item lines="none">
+          <ion-label position="floating">Nombre de Producto</ion-label>
+          <ion-input></ion-input>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-label position="floating">Descripción</ion-label>
+          <ion-input></ion-input>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-label position="floating">Precio</ion-label>
+          <ion-input></ion-input>
+        </ion-item>
+      </form>
+    </div>
+  </ion-content>
+</ion-app>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">update</ion-title>
-    </ion-toolbar>
-  </ion-header>
-</ion-content>
