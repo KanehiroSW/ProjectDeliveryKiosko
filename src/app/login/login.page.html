@@ -1,13 +1,65 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>Login</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Login</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="centerx">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <div>
+            <img src="assets/Dashy-Logo.png" alt="Logo" class="center-image" />
+          </div>
+        </ion-col>
+      </ion-row>
+
+      <div class="center-inputs">
+        <div class="div-inputs">
+          <ion-row>
+            <ion-col>
+              <ion-label position="floating">Username</ion-label>
+              <ion-input type="text" placeholder="Usuario"></ion-input>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-label position="floating">Password</ion-label>
+              <ion-input type="password" placeholder="Contraseña"></ion-input>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-label position="floating">Mi Rol:</ion-label>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-select
+                class="select-input"
+                fill="outline"
+                interface="action-sheet"
+                (ionChange)="onRoleChange($event)"
+              >
+                <ion-select-option value="tienda">Tienda</ion-select-option>
+                <ion-select-option value="repartidor"
+                  >Repartidor</ion-select-option
+                >
+              </ion-select>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-button class="button-login" expand="block" (click)="onLogin()">Iniciar Sesión</ion-button
+              >
+            </ion-col>
+          </ion-row>
+          <div class="login-divider"></div>
+          <h2>¿Aún no se ha registrado? Cree una cuenta</h2>
+          <ion-row>
+            <ion-col>
+              <ion-button class="button-create" expand="block" routerLink="/register"
+                >Crear Cuenta</ion-button
+              >
+            </ion-col>
+          </ion-row>
+        </div>
+      </div>
+    </ion-grid>
+  </div>
 </ion-content>

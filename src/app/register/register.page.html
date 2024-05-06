@@ -1,13 +1,159 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>register</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">register</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="container">
+    <ion-grid>
+      <h2>
+        ¡Aquí puedes crear una cuenta para tu tienda o kiosco en la
+        <span class="u-letter">U</span><span class="cv-letter">CV</span>!
+      </h2>
+      <p>Vamos, siga los siguientes pasos</p>
+      <div class="center-inputs">
+        <div class="div-inputs">
+          <ion-row>
+            <ion-col>
+              <ion-input
+                type="text"
+                clear-input="true"
+                fill="outline"
+                counter="true"
+                maxlength="50"
+                required="true"
+                label="Propietario"
+                labelPlacement="floating"
+                helperText="Nombres y apellidos del propietario"
+              ></ion-input>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-input
+                type="number"
+                clear-input="true"
+                fill="outline"
+                counter="true"
+                maxlength="8"
+                minlenght="8"
+                required="true"
+                label="DNI"
+                labelPlacement="floating"
+                helperText="Ingrese el DNI del propietario"
+              ></ion-input>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-input
+                type="text"
+                clear-input="true"
+                fill="outline"
+                counter="true"
+                maxlength="50"
+                required="true"
+                label="Local"
+                labelPlacement="floating"
+                helperText="Ingrese el nombre del negocio"
+              ></ion-input>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-input
+                type="text"
+                clear-input="true"
+                fill="outline"
+                counter="true"
+                maxlength="50"
+                required="true"
+                label="Ubicación"
+                labelPlacement="floating"
+                helperText="¿En qué parte de la universidad se encuentra el negocio?"
+              ></ion-input>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-input
+                type="number"
+                clear-input="true"
+                fill="outline"
+                counter="true"
+                maxlength="11"
+                required="true"
+                label="RUC"
+                labelPlacement="floating"
+                helperText="Ingrese el RUC del propietario o negocio"
+              ></ion-input>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-input
+                type="number"
+                clear-input="true"
+                fill="outline"
+                counter="true"
+                maxlength="9"
+                minlenght="7"
+                required="true"
+                label="Número de contacto"
+                labelPlacement="floating"
+                helperText="Número celular o fijo del propietário"
+              ></ion-input>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-input
+                type="text"
+                clear-input="true"
+                fill="outline"
+                counter="true"
+                maxlength="50"
+                required="true"
+                label="Usuario"
+                labelPlacement="floating"
+                helperText="Ingrese un nombre de usuario para la cuenta del negocio"
+              ></ion-input>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-input
+                type="text"
+                clear-input="true"
+                fill="outline"
+                counter="true"
+                maxlength="50"
+                required="true"
+                label="Contraseña"
+                labelPlacement="floating"
+                helperText="Ingrese la contraseña para la cuenta del negocio"
+              ></ion-input>
+            </ion-col>
+          </ion-row>
+          <!--¿Es necesario la foto del local, para qué se utilizará?  -->
+          <ion-row>
+            <ion-col>
+              <ion-button class="button-foto" expand="block" (click)="tomarFoto()"
+                >Ingresar foto de la empresa</ion-button
+              >
+            </ion-col>
+            <div class="contImg">
+              <div *ngIf="fotoTomada" clas="subImg">
+              <img class="image-container" [src]="fotoTomada" alt="Foto tomada">
+              </div>
+            </div>
+          </ion-row>
+
+          <ion-row>
+            <ion-col>
+              <ion-button class="button-create" expand="block" routerLink="/login"
+                >Crear</ion-button
+              >
+            </ion-col>
+          </ion-row>
+          <div class="login-divider"></div>
+        </div>
+      </div>
+    </ion-grid>
+  </div>
 </ion-content>
