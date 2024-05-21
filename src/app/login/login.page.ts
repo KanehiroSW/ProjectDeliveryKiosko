@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LoginService } from '../services/auth/login.service';
-import { LoginRequest } from '../services/auth/loginRequest';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,41 +9,33 @@ import { LoginRequest } from '../services/auth/loginRequest';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
+  
+  loginForm: FormGroup;
+  errorMessage: string = "";
 
-  loginError:string="";
+  constructor(
+    private formBuilder: FormBuilder,
+    private loginService: LoginService,
+    private router: Router
+  ) {
+    this.loginForm = this.formBuilder.group({
+      dniPropietario: ['', Validators.required],
+      password: ['', Validators.required]
+    });
+  }
 
-  loginForm=this.formBuilder.group({
-    dniPropietario:['',Validators.required],
-    password: ['',Validators.required],
-  })
+  ngOnInit() {}
 
-  constructor(private formBuilder:FormBuilder, private router:Router, private loginService:LoginService) {}
-
-  ngOnInit(): void { }
-
-  get dniPropietario(){ return this.loginForm.controls.dniPropietario; }
-  get password(){ return this.loginForm.controls.password; }
-
-  login() {
-    if(this.loginForm.valid){
-      this.loginError="";
-      this.loginService.login(this.loginForm.value as LoginRequest).subscribe({
-        next: (userData) => {
-          console.log(userData);
-        },
-        error: (errorData) => {
-          console.error(errorData);
-          this.loginError = "¡El DNI o la contraseña son incorrectos!";
-        },
-        complete: () => {
-          console.info("Login completo");
-          this.router.navigateByUrl('/tabs/tab1');
-          this.loginForm.reset();
-        }
-      })
-    } else {
-      this.loginForm.markAllAsTouched();
-      alert("Error al ingresar los datos.");
+  login(): void {
+    if (this.loginForm.valid) {
+      this.loginService.login(this.loginForm.value.dniPropietario, this.loginForm.value.password)
+      .subscribe(
+        response => {
+          console.log('Login successful', response);
+          this.router.navigate(['/tabs/tab1']);
+      }, error => {
+        console.error('Login error', error);
+      });
     }
   }
 }

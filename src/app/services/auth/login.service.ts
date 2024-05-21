@@ -1,59 +1,44 @@
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, catchError, map, tap, throwError } from 'rxjs';
-import { LoginRequest } from './loginRequest';
+import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { Tienda } from './Tienda';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
 
-  currentUserLoginOn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
-  currentUserData: BehaviorSubject<String> = new BehaviorSubject<String>("");
+  private apiUrl = `${environment.urlHost}auth/tienda`;
 
-  constructor(private http: HttpClient) { 
-    this.currentUserLoginOn=new BehaviorSubject<boolean>(sessionStorage.getItem("token")!=null);
-    this.currentUserData=new BehaviorSubject<String>(sessionStorage.getItem("token") || "");
+  private currentUserSubject: BehaviorSubject<Tienda | null>;
+  public currentUser: Observable<Tienda | null>;
+
+  constructor(private http: HttpClient) {
+    this.currentUserSubject = new BehaviorSubject<Tienda | null>(null);
+    this.currentUser = this.currentUserSubject.asObservable();
   }
 
-  login(credentials:LoginRequest):Observable<any>{
-    return this.http.post<any>(environment.urlHost+"authStore/login",credentials).pipe(
-      tap( (userData) => {
-        sessionStorage.setItem("token", userData.token);
-        this.currentUserData.next(userData.token);
-        this.currentUserLoginOn.next(true);
-      }),
-      map((userData)=> userData.token),
-      catchError(this.handleError)
-    );
+  register(tiendaData: any, file: File): Observable<any> {
+    const formData: FormData = new FormData();
+    formData.append('tienda', new Blob([JSON.stringify(tiendaData)], { type: 'application/json' }));
+    formData.append('file', file);
+
+    return this.http.post(`${this.apiUrl}/register`, formData);
   }
 
-  logout():void{
-    sessionStorage.removeItem("token");
-    this.currentUserLoginOn.next(false);
+  login(dniPropietario: string, password: string): Observable<Tienda> {
+    return this.http.post<Tienda>(`${this.apiUrl}/login`, { dniPropietario, password })
+      .pipe(tap(store => {
+        this.currentUserSubject.next(store);
+      }));
   }
 
-  private handleError(error:HttpErrorResponse){
-    if(error.status===0){
-      console.error('Se ha producio un error ', error.error);
-    }
-    else{
-      console.error('Backend retornó el código de estado ', error);
-    }
-    return throwError(()=> new Error('Algo falló. Por favor intente nuevamente.'));
+  get currentUserValue(): Tienda | null {
+    return this.currentUserSubject.value;
   }
 
-  get userData():Observable<String>{
-    return this.currentUserData.asObservable();
+  logout() {
+    this.currentUserSubject.next(null);
   }
-
-  get userLoginOn():Observable<boolean>{
-    return this.currentUserLoginOn.asObservable();
-  }
-
-  get userToken():String{
-    return this.currentUserData.value;
-  }
-
 }

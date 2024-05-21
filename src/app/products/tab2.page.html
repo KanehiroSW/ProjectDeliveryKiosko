@@ -10,21 +10,25 @@
         <ion-searchbar search-icon="fast-food"
           placeholder="Buscar producto"></ion-searchbar>
       </div>
-      <ion-card *ngFor="let product of products">
-        <ion-card-header>
-          <ion-card-title>{{ product.name }}</ion-card-title>
-          <ion-label>{{ product.description }}</ion-label>
-          <ion-card-subtitle>Precio:</ion-card-subtitle>
-          <ion-label>{{ product.price }}</ion-label>
-        </ion-card-header>
-        <ion-card-content >
-          <img [src]="product.image" alt="{{ product.name }}">
-          <ion-buttons>
-            <ion-button style="--border-radius: 50px;" class="update" (click)="updateProduct(product)" routerLink="/update">ACTUALIZAR</ion-button>
-            <ion-toggle class="switch" aria-label="Success toggle" color="dark" checked="{{ product.estado}}"></ion-toggle>
-          </ion-buttons>
-        </ion-card-content>
-      </ion-card>
+
+      @for (producto of productos; track producto.idProducto) {
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>{{ producto.nombreProducto }}</ion-card-title>
+            <ion-label>{{ producto.descripcion }}</ion-label>
+            <ion-card-subtitle>Precio:</ion-card-subtitle>
+            <ion-label>{{ producto.precio }}</ion-label>
+          </ion-card-header>
+          <ion-card-content >
+            <!-- <img [src]="producto.imagen" alt="{{ producto.nombreProducto }}"> -->
+            <ion-buttons>
+              <ion-button style="--border-radius: 50px;" class="update" routerLink="/update">ACTUALIZAR</ion-button>
+              <ion-toggle class="switch" aria-label="Success toggle" color="dark"></ion-toggle>
+            </ion-buttons>
+          </ion-card-content>
+        </ion-card>
+      }
+
     </div>
   </ion-list>
   <ion-fab slot="fixed" vertical="bottom" horizontal="end">

@@ -8,6 +8,26 @@
       <p>Vamos, siga los siguientes pasos</p>
       <div class="center-inputs">
         <div class="div-inputs">
+
+<!-- INICIO FORM -->
+        <form [formGroup]="registerForm" (ngSubmit)="register()">
+          <ion-row>
+            <ion-col>
+              <ion-input
+                type="text"
+                clear-input="true"
+                fill="outline"
+                counter="true"
+                maxlength="50"
+                required="true"
+                label="Local"
+                labelPlacement="floating"
+                formControlName="nombreTienda"
+                helperText="Ingrese el nombre del negocio"
+              ></ion-input>
+            </ion-col>
+          </ion-row>
+
           <ion-row>
             <ion-col>
               <ion-input
@@ -19,10 +39,12 @@
                 required="true"
                 label="Propietario"
                 labelPlacement="floating"
+                formControlName="nombrePropietario"
                 helperText="Nombres y apellidos del propietario"
               ></ion-input>
             </ion-col>
           </ion-row>
+
           <ion-row>
             <ion-col>
               <ion-input
@@ -35,25 +57,12 @@
                 required="true"
                 label="DNI"
                 labelPlacement="floating"
+                formControlName="dniPropietario"
                 helperText="Ingrese el DNI del propietario"
               ></ion-input>
             </ion-col>
           </ion-row>
-          <ion-row>
-            <ion-col>
-              <ion-input
-                type="text"
-                clear-input="true"
-                fill="outline"
-                counter="true"
-                maxlength="50"
-                required="true"
-                label="Local"
-                labelPlacement="floating"
-                helperText="Ingrese el nombre del negocio"
-              ></ion-input>
-            </ion-col>
-          </ion-row>
+
           <ion-row>
             <ion-col>
               <ion-input
@@ -65,25 +74,29 @@
                 required="true"
                 label="Ubicación"
                 labelPlacement="floating"
+                formControlName="direccion"
                 helperText="¿En qué parte de la universidad se encuentra el negocio?"
               ></ion-input>
             </ion-col>
           </ion-row>
+
           <ion-row>
             <ion-col>
               <ion-input
-                type="number"
+                type="email"
                 clear-input="true"
                 fill="outline"
                 counter="true"
-                maxlength="11"
+                maxlength="100"
                 required="true"
-                label="RUC"
+                label="Email"
                 labelPlacement="floating"
-                helperText="Ingrese el RUC del propietario o negocio"
+                formControlName="email"
+                helperText="Ingrese la dirección de correo electronico de la empresa"
               ></ion-input>
             </ion-col>
           </ion-row>
+
           <ion-row>
             <ion-col>
               <ion-input
@@ -96,29 +109,16 @@
                 required="true"
                 label="Número de contacto"
                 labelPlacement="floating"
+                formControlName="telefono"
                 helperText="Número celular o fijo del propietário"
               ></ion-input>
             </ion-col>
           </ion-row>
+
           <ion-row>
             <ion-col>
               <ion-input
-                type="text"
-                clear-input="true"
-                fill="outline"
-                counter="true"
-                maxlength="50"
-                required="true"
-                label="Usuario"
-                labelPlacement="floating"
-                helperText="Ingrese un nombre de usuario para la cuenta del negocio"
-              ></ion-input>
-            </ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col>
-              <ion-input
-                type="text"
+                type="password"
                 clear-input="true"
                 fill="outline"
                 counter="true"
@@ -126,31 +126,28 @@
                 required="true"
                 label="Contraseña"
                 labelPlacement="floating"
+                formControlName="password"
                 helperText="Ingrese la contraseña para la cuenta del negocio"
               ></ion-input>
             </ion-col>
           </ion-row>
-          <!--¿Es necesario la foto del local, para qué se utilizará?  -->
+
           <ion-row>
-            <ion-col>
-              <ion-button class="button-foto" expand="block" (click)="tomarFoto()"
-                >Ingresar foto de la empresa</ion-button
-              >
-            </ion-col>
             <div class="contImg">
-              <div *ngIf="fotoTomada" clas="subImg">
-              <img class="image-container" [src]="fotoTomada" alt="Foto tomada">
-              </div>
+              <ion-input id="imagen" type="file" (change)="onFileChange($event)"></ion-input>
             </div>
           </ion-row>
 
           <ion-row>
             <ion-col>
-              <ion-button class="button-create" expand="block" routerLink="/login"
-                >Crear</ion-button
-              >
+              <ion-button type="submit" class="button-create" expand="block">
+                Crear
+              </ion-button>
             </ion-col>
           </ion-row>
+        </form>
+<!-- FIN FORM -->
+
           <div class="login-divider"></div>
         </div>
       </div>

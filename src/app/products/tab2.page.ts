@@ -1,53 +1,27 @@
-import { Component, OnInit } from '@angular/core';
-
-interface Product {
-  name: string;
-  description: string;
-  price: string;
-  image: string;
-  quantity: number;
-}
+import { Component, OnInit, inject } from '@angular/core';
+import { ProductoService } from '../services/tienda/Producto.service';
+import { Producto } from '../services/tienda/Producto';
 
 @Component({
   selector: 'app-tab2',
   templateUrl: 'tab2.page.html',
   styleUrls: ['tab2.page.scss'],
 })
-export class Tab2Page implements OnInit {
-  myData: any; 
+export class Tab2Page implements OnInit{
+  
+  private productoService = inject(ProductoService);
 
-  products = [
-    {
-      name: 'Galleta de Soda',
-      description: 'Galleta de soda hecho con productos premium',
-      image: 'https://placehold.co/300x200',
-      price: 'S/1.5',
-      estado: 'true',
-    },
-    {
-      name: 'Galleta de Soda',
-      description: 'Galleta de soda hecho con productos premium',
-      image: 'https://placehold.co/300x200',
-      price: 'S/1.5',
-      estado: 'false',
-    }
-  ];
+  productos: Producto[] = [];
 
-  constructor() { }
-
-  ngOnInit(): void {this.myData = 'Datos inicializados';
+  ngOnInit(): void {
+    this.listProductos();
   }
 
-  updateProduct(product: any) {
-    console.log('Actualizar producto:', product);
-  }
-
-  deleteProduct(product: any) {
-    console.log('Borrar producto:', product);
-  }
-
-  addProduct() {
-    console.log('Agregar producto');
+  listProductos() {
+    this.productoService.list()
+      .subscribe(productos => {
+        this.productos = productos;
+      });
   }
 }
 
