@@ -11,14 +11,8 @@
 
   <ion-list lines="none">
     <div class="container ion-padding">
-      <!-- <div class="contImg">
-        <div *ngIf="fotoTomada" clas="subImg">
-        <img class="image-container" [src]="fotoTomada" alt="Foto tomada">
-        </div>
-      </div> -->
       
       <form [formGroup]="productoForm" (ngSubmit)="registrarProducto()">
-
         <ion-item>
           <ion-label>Imagen</ion-label>
           <ion-input type="file" (change)="onFileChange($event)"></ion-input>

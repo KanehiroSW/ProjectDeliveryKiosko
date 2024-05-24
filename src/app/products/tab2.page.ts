@@ -9,20 +9,14 @@ import { Producto } from '../services/tienda/Producto';
 })
 export class Tab2Page implements OnInit{
   
-  private productoService = inject(ProductoService);
-
   productos: Producto[] = [];
 
-  ngOnInit(): void {
-    this.listProductos();
-  }
+  constructor(private productoService: ProductoService) {}
 
-  listProductos() {
-    this.productoService.list()
-      .subscribe(productos => {
-        this.productos = productos;
-      });
+  ngOnInit(): void {
+    this.productoService.productos$.subscribe((productos) => {
+      this.productos = productos;
+    });
+    this.productoService.refreshProductos();
   }
 }
-
-
