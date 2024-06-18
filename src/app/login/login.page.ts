@@ -20,7 +20,8 @@ export class LoginPage implements OnInit {
   ) {
     this.loginForm = this.formBuilder.group({
       dniPropietario: ['', Validators.required],
-      password: ['', Validators.required]
+      password: ['', Validators.required],
+      userType: ['', Validators.required]
     });
   }
 
@@ -28,10 +29,15 @@ export class LoginPage implements OnInit {
 
   login(): void {
     if (this.loginForm.valid) {
-      this.loginService.login(this.loginForm.value.dniPropietario, this.loginForm.value.password)
+      const { dniPropietario, password, userType } = this.loginForm.value;
+      this.loginService.login(dniPropietario, password)
       .subscribe(
         response => {
-          this.router.navigate(['/tabs/tab1']);
+          if (userType === 'Restaurante') {
+            this.router.navigate(['/tabs/tab1']);
+          } else if (userType === 'Repartidor') {
+            this.router.navigate(['/order-deliman']);
+          }
       }, error => {
         console.error('Login error', error);
       });
