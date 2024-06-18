@@ -30,6 +30,10 @@ export class ProductoService {
     if (idTienda) {
       this.list(idTienda).subscribe(
         (productos) => {
+          productos.forEach(producto => {
+            producto.imagenUrl = `${environment.urlHost}api/images/producto/${producto.imagen}`;
+            console.log(`Imagen URL para ${producto.nombreProducto}: ${producto.imagenUrl}`);
+          });
           this.productosSubject.next(productos);
         },
         (error) => {

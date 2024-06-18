@@ -1,6 +1,6 @@
-import { Component, OnInit, inject } from '@angular/core';
-import { ProductoService } from '../services/tienda/Producto.service';
+import { Component, OnInit } from '@angular/core';
 import { Producto } from '../services/tienda/Producto';
+import { ProductoService } from '../services/tienda/producto.service';
 
 @Component({
   selector: 'app-tab2',

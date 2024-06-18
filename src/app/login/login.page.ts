@@ -31,7 +31,6 @@ export class LoginPage implements OnInit {
       this.loginService.login(this.loginForm.value.dniPropietario, this.loginForm.value.password)
       .subscribe(
         response => {
-          console.log('Login successful', response);
           this.router.navigate(['/tabs/tab1']);
       }, error => {
         console.error('Login error', error);

@@ -5,24 +5,12 @@
   </div>
   <img class="imgReport" src="assets/Img-Reports/RLog.png" alt="Report">
   <ion-list lines="none">
+    <ion-item>
+      <!-- <ion-label>Seleccionar fecha:</ion-label> -->
+      <ion-datetime displayFormat="yyyy-MM-dd" [(ngModel)]="selectedDate"></ion-datetime>
+    </ion-item>
     <ion-item lines="none">
-      <div class="row">
-        <div class="container">
-          <div class="content">
-            <img src="assets/Img-Reports/reportes.png" alt="Imagen 1" class="image">
-            <div class="date">21/04/2024</div>
-            <button class="btn">Visualizar PDF</button>
-          </div>
-        </div>
-
-        <div class="container">
-          <div class="content">
-            <img src="assets/Img-Reports/reportes.png" alt="Imagen 2" class="image">
-            <div class="date">22/04/2024</div>
-            <button class="btn">Visualizar PDF</button>
-          </div>
-        </div>
-      </div>
+      <ion-button expand="block" (click)="generateReport()">Generar Reporte</ion-button>
     </ion-item>
   </ion-list>
 </ion-content>

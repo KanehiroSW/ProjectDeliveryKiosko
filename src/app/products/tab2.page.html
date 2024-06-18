@@ -20,7 +20,7 @@
             <ion-label>{{ producto.precio }}</ion-label>
           </ion-card-header>
           <ion-card-content >
-            <!-- <img [src]="producto.imagen" alt="{{ producto.nombreProducto }}"> -->
+            <img [src]="producto.imagenUrl" alt="{{ producto.nombreProducto }}">
             <ion-buttons>
               <ion-button style="--border-radius: 50px;" class="update" routerLink="/update">ACTUALIZAR</ion-button>
               <ion-toggle class="switch" aria-label="Success toggle" color="dark"></ion-toggle>
