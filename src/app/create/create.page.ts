@@ -52,6 +52,7 @@ export class CreatePage implements OnInit {
         if (currentUser && currentUser.idTienda) {
             formData.append('tiendaId', currentUser.idTienda.toString());
         }
+  
         this.productoService.createProducto(formData).subscribe(
             response => {
                 console.log('Producto registrado', response);
@@ -64,4 +65,4 @@ export class CreatePage implements OnInit {
         );
     }
   }
-}
+  }

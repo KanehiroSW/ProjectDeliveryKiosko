@@ -3,6 +3,8 @@ import { Pedido } from '../services/tienda/Pedido';
 import { Tienda } from '../services/auth/Tienda';
 import { PedidoService } from '../services/tienda/pedido.service';
 import { LoginService } from '../services/auth/login.service';
+import { Router } from '@angular/router';
+import { ActionSheetController } from '@ionic/angular';
 
 @Component({
   selector: 'app-tab1',
@@ -16,8 +18,29 @@ export class Tab1Page implements OnInit {
 
   constructor(
     private pedidoService: PedidoService,
-    private loginService: LoginService
+    private loginService: LoginService,
+    private router:Router,
+    private actionSheetController: ActionSheetController
   ) {}
+
+  async cerrarSesion() {
+    const actionSheet = await this.actionSheetController.create({
+      header: '¿Estás seguro?',
+      buttons: [
+        {
+          text: 'Sí',
+          role: 'destructive',
+          handler: () => {
+            this.router.navigate(['/']);
+          }
+        },
+        {
+          text: 'No',
+        }
+      ]
+    });
+    await actionSheet.present();
+  }
 
   ngOnInit() {
     this.tienda = this.loginService.currentUserValue;

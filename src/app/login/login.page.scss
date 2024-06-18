@@ -6,6 +6,20 @@ ion-grid {
   place-items: center;
 }
 
+.itselect{
+  --background: rgba(0, 0, 0, 0.7);
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+.iselect{
+  color: white;
+  font-size: 20px;
+  font-family: "Outfit", sans-serif;
+  --background: transparent;
+  width: 10px;
+}
+
 .center-image {
   width: 255px;
 }
