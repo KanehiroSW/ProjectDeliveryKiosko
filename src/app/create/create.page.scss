@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
 .header {
   position: absolute;
-  background: rgba(167, 114, 15, 0.974);
+  background: linear-gradient(to right, red, blue);
   height: 200px;
   margin: 0px;
   width: 100%;
@@ -87,7 +87,7 @@ ion-list{
 
 .btnup{
   --box-shadow: none;
-  --background: rgb(113, 199, 43);
+  --background: gray;
   --border-radius: 50px;
   height: 40px;
   font-family: "Outfit", sans-serif;

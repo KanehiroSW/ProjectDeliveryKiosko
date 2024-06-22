@@ -15,7 +15,7 @@
       <form [formGroup]="productoForm" (ngSubmit)="registrarProducto()">
         <ion-item>
           <ion-label>Imagen</ion-label>
-          <ion-input type="file" (change)="onFileChange($event)"></ion-input>
+          <ion-input class="iptFile" type="file" (change)="onFileChange($event)"></ion-input>
         </ion-item>
         <ion-item lines="none">
           <ion-input formControlName="nombreProducto" type="text" label="Nombre de Producto" labelPlacement="floating" placeholder="Nombre"></ion-input>

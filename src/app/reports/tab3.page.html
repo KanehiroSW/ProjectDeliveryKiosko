@@ -6,11 +6,10 @@
   <img class="imgReport" src="assets/Img-Reports/RLog.png" alt="Report">
   <ion-list lines="none">
     <ion-item>
-      <!-- <ion-label>Seleccionar fecha:</ion-label> -->
       <ion-datetime displayFormat="yyyy-MM-dd" [(ngModel)]="selectedDate"></ion-datetime>
     </ion-item>
     <ion-item lines="none">
-      <ion-button expand="block" (click)="generateReport()">Generar Reporte</ion-button>
+      <ion-button class="btnRep" (click)="generateReport()">Generar Reporte</ion-button>
     </ion-item>
   </ion-list>
 </ion-content>

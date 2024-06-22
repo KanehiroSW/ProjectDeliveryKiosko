@@ -1,0 +1,59 @@
+<ion-content>
+  <div class="header">
+    <p class="ptit">HISTORIAL</p>
+    <p class="psub">DE PEDIDOS</p>
+  </div>
+  <img class="imgReport" src="assets/History.png" alt="Report" />
+  <ion-list lines="none">
+    <ion-item>
+      <ion-item lines="none">
+        <ion-card>
+          <ion-card-header>
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  <ion-card-title>Proveedor:</ion-card-title>
+                </ion-col>
+                <ion-col>
+                  <ion-card-title class="Hstore"></ion-card-title>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+            <ion-accordion-group>
+              <ion-accordion value="content-product">
+                <ion-item slot="header" color="light">
+                  <ion-label>Productos</ion-label>
+                </ion-item>
+
+                <div slot="content">
+                  <div class="Product ion-padding" slot="content">GALLETA</div>
+                  <div class="Quantity ion-padding" slot="content">12</div>
+                </div>
+              </ion-accordion>
+            </ion-accordion-group>
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  <ion-card-subtitle>Total:</ion-card-subtitle>
+                </ion-col>
+                <ion-col>
+                  <ion-card-subtitle>12</ion-card-subtitle>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  <ion-card-subtitle>Fecha:</ion-card-subtitle>
+                </ion-col>
+                <ion-col>
+                  <ion-card-subtitle>21/12/04</ion-card-subtitle>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-card-header>
+        </ion-card>
+      </ion-item>
+    </ion-item>
+  </ion-list>
+</ion-content>

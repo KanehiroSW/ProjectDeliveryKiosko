@@ -2,7 +2,7 @@
 .header {
   position: absolute;
   background: blue;
-  height: 200px;
+  height: 160px;
   margin: 0px;
   width: 100%;
 }
@@ -28,8 +28,8 @@
 
 .imgReport{
   position: absolute;
-  width: 115px;
-  height: 120px;
+  width: 105px;
+  height: 110px;
   top: 25px;
   right: 0;
 }
@@ -100,4 +100,15 @@ ion-list{
   font-family: "Outfit", sans-serif;
   --background: gray;
   margin-top: 100px;
+}
+
+ion-card {
+  border-radius: 30px;
+  width: 95%;
+  height: 150px;
+}
+
+.imgBanner {
+  height: 100px;
+  margin-left: 20px;
 }

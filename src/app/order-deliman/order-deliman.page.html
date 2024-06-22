@@ -7,9 +7,6 @@
   <ion-list>
     <ion-item class="ContGe ion-no-padding">
       <div>
-        <ion-item class="ImgItem" lines="none">
-          <img src="assets/ImgDeliMan/pabellon.jpg" alt="Imagen del producto" class="ImgLoc">
-        </ion-item>
         <ion-card>
           <ion-card-content class="ion-no-border">
             <ion-grid>
@@ -31,23 +28,25 @@
             <p class="total">Total:</p>
             <p class="total-price">4.00</p>
             <h4 class="shipping-detail">Detalle de Envío</h4>
-            <p class="details-floor">Piso:</p>
-            <p class="details-fnum">2</p><br>
-            <p class="details-room">Pabellón:</p>
-            <p class="details-rnum">A</p><br>
-            <p class="details-clas">Aula(opcional):</p>
-            <p class="details-cnum">201</p>
+            <p class="details-floor"></p>
             <div class="button-container">
               <ion-select label="Estado de Pedido" label-placement="stacked" interface="popover"
                 placeholder="Selecciona">
-                <ion-select-option value="En proceso">En proceso</ion-select-option>
-                <ion-select-option value="En envío">En envío</ion-select-option>
-                <ion-select-option value="Terminado">Terminado</ion-select-option>
+                <ion-select-option value="EN_CAMINO">EN CAMINO</ion-select-option>
+                <ion-select-option value="ENTREGADO">ENTREGADO</ion-select-option>
               </ion-select>
+              <ion-button  expand="block" fill="clear" shape="round">
+                Actualizar
+              </ion-button>
             </div>
           </div>
         </div>
       </div>
     </ion-item>
   </ion-list>
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button class="AddPro" (click)="cerrarSesion()">
+      <ion-icon name="power-sharp"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>
