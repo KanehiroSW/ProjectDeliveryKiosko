@@ -5,17 +5,22 @@
   </div>
   <img class="imgReport" src="assets/History.png" alt="Report" />
   <ion-list lines="none">
-    <ion-item>
+    
+    @for (pedido of pedidos; track pedido.idPedido) {
       <ion-item lines="none">
         <ion-card>
           <ion-card-header>
             <ion-grid>
               <ion-row>
                 <ion-col>
-                  <ion-card-title>Proveedor:</ion-card-title>
+                  <ion-card-title class="estado-pedido">Pedido N°{{ pedido.numeroSerie }}</ion-card-title>
                 </ion-col>
+              </ion-row>
+              <ion-row>
                 <ion-col>
-                  <ion-card-title class="Hstore"></ion-card-title>
+                  <ion-card-title class="center-content estado-pedido" 
+                  [ngClass]="{'entregado': pedido.estadoPedido === 'ENTREGADO', 'rechazado': pedido.estadoPedido === 'RECHAZADO'}">
+                  {{ pedido.estadoPedido }}</ion-card-title>
                 </ion-col>
               </ion-row>
             </ion-grid>
@@ -24,11 +29,16 @@
                 <ion-item slot="header" color="light">
                   <ion-label>Productos</ion-label>
                 </ion-item>
-
-                <div slot="content">
-                  <div class="Product ion-padding" slot="content">GALLETA</div>
-                  <div class="Quantity ion-padding" slot="content">12</div>
-                </div>
+                @for (detalle of pedido.detallePedidos; track detalle.idDetalle) {
+                  <div slot="content">
+                    <div class="Product ion-padding" slot="content">
+                      {{ detalle.producto.nombreProducto }}
+                    </div>
+                    <div class="Quantity ion-padding" slot="content">
+                      {{ detalle.cantidad }}
+                    </div>
+                  </div>
+                }
               </ion-accordion>
             </ion-accordion-group>
             <ion-grid>
@@ -37,7 +47,7 @@
                   <ion-card-subtitle>Total:</ion-card-subtitle>
                 </ion-col>
                 <ion-col>
-                  <ion-card-subtitle>12</ion-card-subtitle>
+                  <ion-card-subtitle>{{ pedido.totalPedido | currency }}</ion-card-subtitle>
                 </ion-col>
               </ion-row>
             </ion-grid>
@@ -47,13 +57,14 @@
                   <ion-card-subtitle>Fecha:</ion-card-subtitle>
                 </ion-col>
                 <ion-col>
-                  <ion-card-subtitle>21/12/04</ion-card-subtitle>
+                  <ion-card-subtitle>{{ pedido.fechaPedido | date:'dd/MM/yyyy' }}</ion-card-subtitle>
                 </ion-col>
               </ion-row>
             </ion-grid>
           </ion-card-header>
         </ion-card>
       </ion-item>
-    </ion-item>
+      }
+  
   </ion-list>
 </ion-content>

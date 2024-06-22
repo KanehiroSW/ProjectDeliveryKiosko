@@ -9,6 +9,15 @@
   --inner-padding-end: 0px;
 }
 
+.status-pedido {
+  font-size: 14px;
+  color: gray;
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
 
 .ImgItem{
   --background: rgba(0, 0, 0, 0);

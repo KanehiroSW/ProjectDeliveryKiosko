@@ -4,51 +4,88 @@
     <p class="psub">EN PROCESO</p>
   </div>
   <img class="imgPhe" src="assets/ImgDeliMan/PLogHe.png" alt="Plog" />
-  <ion-list>
-    <ion-item class="ContGe ion-no-padding">
-      <div class="box">
-        <ion-card>
-          <ion-card-content class="ion-no-border">
-            <ion-grid>
-              <ion-row>
-                <ion-col size="8">
-                  <ion-card-title>Productos</ion-card-title>
-                  <ion-button class="btnview" color="#72C28F">
-                    <ion-icon name="eye"></ion-icon>
-                  </ion-button>
-                </ion-col>
-              </ion-row>
-            </ion-grid>
-          </ion-card-content>
-        </ion-card>
-        <div class="DetPed">
-          <div class="ion-padding">
-            <p class="total">Total:</p>
-            <p class="total-price">4.00</p>
-            <h4 class="shipping-detail">Detalle de Envío</h4>
-            <p class="details-floor"></p>
-            <div class="button-container">
+  <ion-list lines="none" class="main">
+    
+    @for (pedido of pedidos; track pedido.idPedido) {
+    <ion-item lines="none">
+      <ion-card>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <img class="imgBanner" alt="Banner2" src="/assets/OPBanner.png" />
+              <ion-card-subtitle class="status-pedido">{{pedido.estadoPedido}}</ion-card-subtitle>
+            </ion-col>
+            <ion-col>
+              <ion-card-title class="nserie-title">N°{{pedido.numeroSerie}}</ion-card-title>
+              
+              <!-- MODAL DETALLE PEDIDO -->
+              <ion-button id="modal-{{pedido.idPedido}}" class="btnview" color="#72C28F">
+                <ion-icon name="eye"></ion-icon>
+              </ion-button>
+
+            <ion-modal [trigger]="'modal-' + pedido.idPedido">
+                <ng-template>
+                    <ion-content>
+                        <ion-toolbar>
+                            <ion-title>DETALLE DE PEDIDO</ion-title>                      
+                        </ion-toolbar>
+
+                        @for (detalle of pedido.detallePedidos; track detalle.idDetalle) {
+                        <ion-list>
+                            <ion-item>
+                                <ion-avatar slot="start">
+                                    <ion-img src="assets/ImgOPDetails/detalle_pedido_img.png"></ion-img>
+                                </ion-avatar>
+                                <ion-label>
+                                    <h2>{{ detalle.producto.nombreProducto }}</h2>
+                                    <h3>Cantidad:</h3>
+                                    <h3>{{ detalle.cantidad }}</h3>
+                                    <h3>Precio:</h3>
+                                    <h3>{{ detalle.precioUnitario }}</h3>
+                                </ion-label>
+                            </ion-item>
+                            <ion-item>
+                                <ion-label>
+                                    <h3>Total:</h3>
+                                    <h3> S/.{{ detalle.totalDetalle }}</h3>
+                                </ion-label>
+                            </ion-item>
+                        </ion-list>  
+                        } 
+
+                        <ion-list>
+                            <ion-item>
+                                <ion-label>
+                                    <h3>Dirección de entrega:</h3>
+                                    <h3>{{ pedido.direccionEntrega }}</h3>
+                                </ion-label>
+                            </ion-item>
+                        </ion-list>                                       
+                    </ion-content>
+                </ng-template>
+            </ion-modal>
+
               <ion-select
-                label="Estado de Pedido"
+                class="iselect"
                 label-placement="stacked"
                 interface="popover"
-                placeholder="Selecciona"
-              >
-                <ion-select-option value="EN_CAMINO"
-                  >EN CAMINO</ion-select-option
+                label="Estado:"
+                placeholder="Seleccionar"
+                [(ngModel)]="selectedEstado"
                 >
-                <ion-select-option value="ENTREGADO"
-                  >ENTREGADO</ion-select-option
-                >
+                <ion-select-option value="EN_CAMINO">EN CAMINO</ion-select-option>
+                <ion-select-option value="ENTREGADO">ENTREGADO</ion-select-option>
               </ion-select>
-              <ion-button expand="block" fill="clear" shape="round">
+              <ion-button expand="block" fill="clear" shape="round" (click)="updateEstadoPedido(pedido)">
                 Actualizar
               </ion-button>
-            </div>
-          </div>
-        </div>
-      </div>
+            </ion-col>
+            
+          </ion-row>
+        </ion-grid>
+      </ion-card>
     </ion-item>
+  }
   </ion-list>
   <ion-fab slot="fixed" vertical="bottom" horizontal="end">
     <ion-fab-button class="AddPro" (click)="cerrarSesion()">
@@ -56,46 +93,3 @@
     </ion-fab-button>
   </ion-fab>
 </ion-content>
-
-<ion-modal>
-  <ng-template>
-    <ion-content>
-      <ion-toolbar>
-        <ion-title>DETALLE DE PEDIDO</ion-title>
-      </ion-toolbar>
-
-      <ion-list>
-        <ion-item>
-          <ion-avatar slot="start">
-            <ion-img
-              src="assets/bolsa.png"
-            ></ion-img>
-          </ion-avatar>
-          <ion-label>
-            <h2></h2>
-            <h3>Cantidad:</h3>
-            <h3></h3>
-            <h3>Precio:</h3>
-            <h3></h3>
-          </ion-label>
-        </ion-item>
-        <ion-item>
-          <ion-label>
-            <h3>Total:</h3>
-            <h3></h3>
-          </ion-label>
-        </ion-item>
-      </ion-list>
-      
-
-      <ion-list>
-        <ion-item>
-          <ion-label>
-            <h3>Dirección de entrega:</h3>
-            <h3></h3>
-          </ion-label>
-        </ion-item>
-      </ion-list>
-    </ion-content>
-  </ng-template>
-</ion-modal>

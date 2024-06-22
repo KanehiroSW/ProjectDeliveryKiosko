@@ -20,4 +20,16 @@ export class PedidoService {
   updatePedidoStatus(idPedido: number, estado: string): Observable<Pedido> {
     return this.http.put<Pedido>(`${this.apiUrl}/update/${idPedido}/${estado}`, {});
   }
+
+  getHistorialPedidosByTienda(tiendaId: number): Observable<Pedido[]> {
+    return this.http.get<Pedido[]>(`${this.apiUrl}/tienda/${tiendaId}/historial`);
+  }
+
+  getPedidosEnProcesoByTienda(tiendaId: number): Observable<Pedido[]> {
+    return this.http.get<Pedido[]>(`${this.apiUrl}/tienda/${tiendaId}/gestion`);
+  }
+
+  getPedidosByTiendaDelivery(tiendaId: number): Observable<Pedido[]> {
+    return this.http.get<Pedido[]>(`${this.apiUrl}/tienda/${tiendaId}/delivery`);
+  }
 }

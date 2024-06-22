@@ -7,6 +7,25 @@
   width: 100%;
 }
 
+.estado-pedido {
+  font-size: 18px;
+}
+
+.entregado {
+  color: green;
+}
+
+.rechazado {
+  color: red;
+}
+
+.center-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
 .ptit{
   font-family: "Outfit", sans-serif;
   color: #F2F2F2;
