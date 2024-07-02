@@ -28,6 +28,10 @@ const routes: Routes = [
         loadChildren: () => import('../ForFinish/tab5.module').then(m => m.Tab5PageModule)
       },
       {
+        path: 'tab6',
+        loadChildren: () => import('../Rep/tab6.module').then(m => m.Tab6PageModule)
+      },
+      {
         path: '',
         redirectTo: '/tabs/tab1',
         pathMatch: 'full'
